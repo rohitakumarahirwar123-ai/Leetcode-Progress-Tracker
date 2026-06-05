@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeetCode Progress Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark">LC</div>
+        <div>
+          <h1>LeetCode Tracker</h1>
+          <p>my small DSA practice log</p>
+        </div>
+      </div>
+
+      <div class="quick-note">
+        <span class="note-label">Date</span>
+        <strong id="todayLabel">Practice log</strong>
+        <p>I use this to remember solved questions, confidence and revision.</p>
+      </div>
+    </header>
+
+    <main class="main">
+      <section id="dashboard" class="topbar">
+        <div>
+          <p class="eyebrow">Practice Tracker</p>
+          <h2>LeetCode progress tracker</h2>
+          <p class="intro">A simple project for tracking DSA questions, topics, streak and revision notes.</p>
+        </div>
+        <div class="toolbar">
+          <button id="clearBtn" class="ghost-btn" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Progress summary">
+        <article class="stat-card">
+          <span>Total solved</span>
+          <strong id="totalSolved">0</strong>
+          <p id="totalSubtext">No solved problems yet</p>
+        </article>
+        <article class="stat-card">
+          <span>Current streak</span>
+          <strong id="currentStreak">0</strong>
+          <p>days in a row</p>
+        </article>
+        <article class="stat-card">
+          <span>Revision</span>
+          <strong id="revisionCount">0</strong>
+          <p>marked or low confidence</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel problem-panel" id="problems">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Entry form</p>
+              <h3>Add a problem</h3>
+            </div>
+          </div>
+
+          <form id="problemForm" class="problem-form">
+            <label>
+              Problem name
+              <input id="titleInput" type="text" placeholder="Two Sum" required />
+            </label>
+            <label>
+              Topic
+              <select id="topicInput" required>
+                <option value="Array">Array</option>
+                <option value="String">String</option>
+                <option value="Hash Table">Hash Table</option>
+                <option value="Two Pointers">Two Pointers</option>
+                <option value="Sliding Window">Sliding Window</option>
+                <option value="Stack">Stack</option>
+                <option value="Queue">Queue</option>
+                <option value="Linked List">Linked List</option>
+                <option value="Tree">Tree</option>
+                <option value="Graph">Graph</option>
+                <option value="DP">DP</option>
+                <option value="Greedy">Greedy</option>
+                <option value="Binary Search">Binary Search</option>
+              </select>
+            </label>
+            <label>
+              Difficulty
+              <select id="difficultyInput" required>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </label>
+            <label>
+              Status
+              <select id="statusInput" required>
+                <option value="Solved">Solved</option>
+                <option value="Revisit">Revisit</option>
+                <option value="Attempted">Attempted</option>
+              </select>
+            </label>
+            <label>
+              Solved date
+              <input id="dateInput" type="date" required />
+            </label>
+            <label>
+              Confidence
+              <input id="confidenceInput" type="number" min="1" max="10" value="5" required />
+            </label>
+            <label class="full">
+              Notes
+              <textarea id="notesInput" rows="3" placeholder="Mistake, pattern, edge case, or anything useful..."></textarea>
+            </label>
+            <button class="primary-btn full" type="submit">Add problem</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Difficulty</p>
+              <h3>Solved count</h3>
+            </div>
+          </div>
+          <div class="difficulty-bars">
+            <div class="bar-row">
+              <span>Easy</span>
+              <div class="bar-track"><div id="easyBar" class="bar-fill easy"></div></div>
+              <strong id="easyCount">0</strong>
+            </div>
+            <div class="bar-row">
+              <span>Medium</span>
+              <div class="bar-track"><div id="mediumBar" class="bar-fill medium"></div></div>
+              <strong id="mediumCount">0</strong>
+            </div>
+            <div class="bar-row">
+              <span>Hard</span>
+              <div class="bar-track"><div id="hardBar" class="bar-fill hard"></div></div>
+              <strong id="hardCount">0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-header table-tools">
+          <div>
+            <p class="eyebrow">Saved data</p>
+            <h3>Problem list</h3>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Problem</th>
+                <th>Topic</th>
+                <th>Difficulty</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Confidence</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="problemTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
